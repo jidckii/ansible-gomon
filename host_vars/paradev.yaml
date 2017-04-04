@@ -9,7 +9,6 @@ gomon_process_list:
   - mysqld
   - nginx
   - php5-fpm
-  - pptpd
   - redis-server
   - vsftpd
   - peskar

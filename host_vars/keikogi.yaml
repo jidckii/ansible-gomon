@@ -7,7 +7,6 @@ gomon_process_list:
   - nginx
   - openvpn
   - php5-fpm
-  - pptpd
   - smbd
   - transmission-da
   - vsftpd

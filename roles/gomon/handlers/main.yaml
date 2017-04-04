@@ -1,0 +1,5 @@
+---
+- name: restart shit
+  file:
+    path: "/home/{{ ansible_ssh_user }}/tmp/handled"
+    state: touch
