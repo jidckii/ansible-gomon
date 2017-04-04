@@ -1,6 +1,7 @@
 ---
 gomon_version: 0.1.5
 gomon_download_url: https://github.com/leominov/self-monitoring/releases/download/{{ gomon_version }}/gomon-Linux-{{ ansible_architecture }}.tar.gz
+gomon_distrib_path: "/home/{{ ansible_ssh_user }}/tmp-{{ gomon_version }}"
 
 # Main options
 gomon_interval: 15s
