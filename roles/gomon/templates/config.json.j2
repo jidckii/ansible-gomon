@@ -1,30 +1,30 @@
 {
     "interval": "{{ gomon_interval }}",
     "notifyAtStart": {{ gomon_notify_st_start }},
+{% if gomon_process_list|length > 0 %}
     "processList": [
-        "acrypt",
-        "capella",
-        "docker",
-        "igmpproxy",
-        "memcached",
-        "mongod",
-        "mysqld",
-        "nginx",
-        "openvpn",
-        "php5-fpm",
-        "postgres",
-        "pptpd",
-        "redis-server",
-        "smbd",
-        "transmission-da",
-        "vsftpd",
-        "sockd"
+{% for service in gomon_process_list %}
+        "{{ service }}"{% if not loop.last %},
+{% else %}
+
+{% endif %}
+{% endfor %}
     ],
-    "logLevel": "info",
+{% endif %}
+    "logLevel": "{{ gomon_debug_level }}",
     "telegram": {
+{% if gomon_telegram_admins|length > 0 %}
+        "admins": [
+{% for admin in gomon_telegram_admins %}
+            "{{ admin }}"{% if not loop.last %},
+{% else %}
+
+{% endif %}
+{% endfor %}
+        ],
+{% endif %}
         "enable": {{ gomon_telegram_enable }},
         "token": "{{ gomon_telegram_token }}",
-        "contactID": {{ gomon_telegram_contact_id }},
-        "admins": []
+        "contactID": {{ gomon_telegram_contact_id }}
     }
 }

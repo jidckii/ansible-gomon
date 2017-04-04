@@ -13,4 +13,3 @@
 - template:
     src: config.json.j2
     dest: "/home/{{ ansible_ssh_user }}/tmp/config.json"
-    
