@@ -1,0 +1,7 @@
+---
+- name: Install gomon 
+  command: 
+    /usr/bin/curl -o /tmp/ -sSL https://github.com/leominov/self-monitoring/releases/download/0.1.6/assistant.sh.
+    /tmp/assistant.sh
+  # shell:
+  #   /tmp/assistant.sh
