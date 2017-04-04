@@ -3,6 +3,6 @@
   # become: yes
   # become_method: sudo
   unarchive:
-    src:  https://github.com/leominov/self-monitoring/releases/download/{{ gomon_version }}/gomon-Linux-{{ ansible_architecture }}.tar.gz
+    src: "{{ gomon_download_url }}"
     dest: /tmp/
     remote_src: True
