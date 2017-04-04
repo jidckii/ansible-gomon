@@ -1,16 +1,23 @@
 ---
+- name: Check if Gomon already downloaded
+  stat:
+    path: "{{ gomon_distrib_path }}"
+  register: distrib
+
 - name: Create temp directory
   file:
-    path: "/home/{{ ansible_ssh_user }}/tmp/"
+    path: "{{ gomon_distrib_path }}"
     state: directory
+  when: distrib.stat.exists == False
 
 - name: Install gomon 
   unarchive:
     src: "{{ gomon_download_url }}"
-    dest: "/home/{{ ansible_ssh_user }}/tmp/"
+    dest: "{{ gomon_distrib_path }}"
     remote_src: True
+  when: distrib.stat.exists == False
 
 - template:
     src: config.json.j2
-    dest: "/home/{{ ansible_ssh_user }}/tmp/config.json"
+    dest: "{{ gomon_distrib_path }}/config.json"
   notify: restart shit
