@@ -2,7 +2,11 @@
 - name: Install gomon 
   # become: yes
   # become_method: sudo
+  file:
+    path: /home/{{ ansible_ssh_user }}
+    state: directory
+
   unarchive:
     src: "{{ gomon_download_url }}"
-    dest: /tmp/
+    dest: /home/{{ ansible_ssh_user }}
     remote_src: True
