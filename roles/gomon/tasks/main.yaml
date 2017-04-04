@@ -1,12 +1,11 @@
 ---
-- name: Install gomon 
-  # become: yes
-  # become_method: sudo
+- name: Create temp directory
   file:
-    path: /home/{{ ansible_ssh_user }}
+    path: "/home/{{ ansible_ssh_user }}/tmp/"
     state: directory
 
+- name: Install gomon 
   unarchive:
     src: "{{ gomon_download_url }}"
-    dest: /home/{{ ansible_ssh_user }}
+    dest: "/home/{{ ansible_ssh_user }}/tmp/"
     remote_src: True
