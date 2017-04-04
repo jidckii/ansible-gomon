@@ -1,6 +1,6 @@
 {
-    "interval": "15s",
-    "notifyAtStart": true,
+    "interval": "{{ gomon_interval }}",
+    "notifyAtStart": {{ gomon_notify_st_start }},
     "processList": [
         "acrypt",
         "capella",
@@ -22,9 +22,9 @@
     ],
     "logLevel": "info",
     "telegram": {
-        "enable": false,
-        "token": "",
-        "contactID": 0,
+        "enable": {{ gomon_telegram_enable }},
+        "token": "{{ gomon_telegram_token }}",
+        "contactID": {{ gomon_telegram_contact_id }},
         "admins": []
     }
 }
