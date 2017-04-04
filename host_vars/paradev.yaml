@@ -1,0 +1,3 @@
+---
+ansible_host: paradev.ru
+arch=x86_64

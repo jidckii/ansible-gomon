@@ -1,9 +1,8 @@
 ---
 - name: Install gomon 
-  become: yes
-  become_method: sudo
-  command: 
-    /usr/bin/curl -o /tmp/ -sSL https://github.com/leominov/self-monitoring/releases/download/0.1.6/assistant.sh.
-    /tmp/assistant.sh
-  # shell:
-  #   /tmp/assistant.sh
+  # become: yes
+  # become_method: sudo
+  unarchive:
+    src:  https://github.com/leominov/self-monitoring/releases/download/0.1.6/gomon-Linux-{{ arch }}.tar.gz
+    dest: /tmp/
+    remote_src: True

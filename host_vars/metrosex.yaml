@@ -1,3 +1,4 @@
 ---
 ansible_host: socks.keikogi.ru
 ansible_ssh_user: techadmin
+arch=x86_64
