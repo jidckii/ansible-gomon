@@ -1,2 +1,13 @@
 ---
 ansible_host: keikogi.ru
+
+gomon_telegram_token: "12345"
+gomon_process_list:
+  - mysqld
+  - nginx
+  - openvpn
+  - php5-fpm
+  - pptpd
+  - smbd
+  - transmission-da
+  - vsftpd

@@ -1,2 +1,24 @@
 ---
 ansible_host: paradev.ru
+
+gomon_telegram_token: "123456"
+gomon_process_list:
+  - docker
+  - igmpproxy
+  - mongod
+  - mysqld
+  - nginx
+  - php5-fpm
+  - pptpd
+  - redis-server
+  - vsftpd
+  - peskar
+  - peskar-index
+  - peskar-bot
+  - rssd
+  - sso
+  - pechkin-daemon
+  - pechkin-notiflo
+  - weburg-telegram
+  - varvar
+  - datalock
