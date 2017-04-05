@@ -1,7 +1,7 @@
 ---
 ansible_host: paradev.ru
 
-gomon_telegram_token: "123456"
+gomon_telegram_token: "12345"
 gomon_process_list:
   - docker
   - igmpproxy

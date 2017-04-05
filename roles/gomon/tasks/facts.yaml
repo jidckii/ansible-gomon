@@ -1,0 +1,5 @@
+---
+- name: Check if Gomon already downloaded
+  stat:
+    path: "{{ gomon_distrib_path }}"
+  register: distrib

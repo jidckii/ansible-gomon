@@ -1,7 +1,7 @@
 ---
 gomon_version: 0.1.6
 
-gomon_telegram_enable: true
+gomon_telegram_enable: "true"
 gomon_telegram_contact_id: -128368917
 gomon_telegram_admins:
   - leominov

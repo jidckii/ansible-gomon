@@ -1,5 +1,6 @@
 ---
-- name: restart shit
-  file:
-    path: "/home/{{ ansible_ssh_user }}/tmp/handled"
-    state: touch
+- name: reload gomon config
+  service:
+    name: gomon
+    state: reloaded
+  become: yes

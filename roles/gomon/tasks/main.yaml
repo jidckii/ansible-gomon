@@ -1,23 +1,9 @@
 ---
-- name: Check if Gomon already downloaded
-  stat:
-    path: "{{ gomon_distrib_path }}"
-  register: distrib
+- include: facts.yaml
 
-- name: Create temp directory
-  file:
-    path: "{{ gomon_distrib_path }}"
-    state: directory
+- include: install.yaml
   when: distrib.stat.exists == False
+  become: yes
 
-- name: Install gomon 
-  unarchive:
-    src: "{{ gomon_download_url }}"
-    dest: "{{ gomon_distrib_path }}"
-    remote_src: True
-  when: distrib.stat.exists == False
-
-- template:
-    src: config.json.j2
-    dest: "{{ gomon_distrib_path }}/config.json"
-  notify: restart shit
+- include: configure.yaml
+  become: yes

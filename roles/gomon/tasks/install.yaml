@@ -1,0 +1,41 @@
+---
+- name: Check if Gomon working directory exists
+  stat:
+    path: "{{ gomon_working_path }}"
+
+- name: Create temp directory
+  file:
+    path: "{{ gomon_distrib_path }}"
+    state: directory
+
+- name: Download and unarchive Gomon
+  unarchive:
+    src: "{{ gomon_download_url }}"
+    dest: "{{ gomon_distrib_path }}"
+    remote_src: yes
+
+- name: Create service
+  copy:
+    src: "{{ gomon_distrib_path }}/init/gomon"
+    dest: "/etc/init.d/gomon"
+    mode: 0755
+    remote_src: yes
+
+- name: Stop Gomon service
+  service:
+    name: gomon
+    state: stopped
+  ignore_errors: yes
+
+- name: Copy binary
+  copy:
+    src: "{{ gomon_distrib_path }}/gomon"
+    dest: "{{ gomon_working_path }}/gomon"
+    mode: 0755
+    remote_src: yes
+
+- name: Start Gomon service
+  service:
+    name: gomon
+    enabled: yes
+    state: started

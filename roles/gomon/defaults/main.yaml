@@ -1,16 +1,17 @@
 ---
 gomon_version: 0.1.5
 gomon_download_url: https://github.com/leominov/self-monitoring/releases/download/{{ gomon_version }}/gomon-Linux-{{ ansible_architecture }}.tar.gz
-gomon_distrib_path: "/home/{{ ansible_ssh_user }}/tmp-{{ gomon_version }}"
+gomon_distrib_path: "/tmp/gomon-{{ gomon_version }}"
+gomon_working_path: /opt/self-monitoring
 
 # Main options
 gomon_interval: 15s
-gomon_notify_st_start: true
+gomon_notify_st_start: "true"
 gomon_process_list: []
 gomon_debug_level: info
 
 # Telegram options
-gomon_telegram_enable: false
+gomon_telegram_enable: "false"
 gomon_telegram_token: 0
 gomon_telegram_contact_id: 0
 gomon_telegram_admins: []
