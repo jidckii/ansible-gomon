@@ -1,7 +1,8 @@
 ---
-- name: Check if Gomon working directory exists
-  stat:
+- name: Create work directory
+  file:
     path: "{{ gomon_working_path }}"
+    state: directory
 
 - name: Create temp directory
   file:
@@ -21,7 +22,7 @@
     mode: 0755
     remote_src: yes
 
-- name: Stop Gomon service
+- name: Stop Gomon service, if it runns
   service:
     name: gomon
     state: stopped
@@ -34,7 +35,7 @@
     mode: 0755
     remote_src: yes
 
-- name: Start Gomon service
+- name: Start and enable Gomon service
   service:
     name: gomon
     enabled: yes
