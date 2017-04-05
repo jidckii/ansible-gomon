@@ -1,14 +1,4 @@
 ---
-- name: Create work directory
-  file:
-    path: "{{ gomon_working_path }}"
-    state: directory
-
-- name: Create temp directory
-  file:
-    path: "{{ gomon_distrib_path }}"
-    state: directory
-
 - name: Download and unarchive Gomon
   unarchive:
     src: "{{ gomon_download_url }}"

@@ -1,9 +1,9 @@
 ---
 - include: facts.yaml
 
-- include: install.yaml
-  when: distrib.stat.exists == False
+- include: configure.yaml
   become: yes
 
-- include: configure.yaml
+- include: install.yaml
+  when: distrib.stat.exists == False
   become: yes

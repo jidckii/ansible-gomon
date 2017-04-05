@@ -1,4 +1,15 @@
 ---
+- name: Create work directory
+  file:
+    path: "{{ gomon_working_path }}"
+    state: directory
+
+- name: Create temp directory
+  file:
+    path: "{{ gomon_distrib_path }}"
+    state: directory
+  when: distrib.stat.exists == False
+
 - name: Configure Gomon
   template:
     src: config.json.j2
