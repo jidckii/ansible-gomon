@@ -1,5 +1,8 @@
 ---
-- include: facts.yaml
+- name: Check if Gomon already downloaded
+  stat:
+    path: "{{ gomon_distrib_path }}"
+  register: distrib
 
 - include: configure.yaml
   become: yes
